@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="buttons.css">
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      body,
+      input,
+      button,
+      select,
+      textarea {
+        font-size: 14px;
+      }
+
+      input:not([type="radio"]):not([type="checkbox"]),
+      select,
+      textarea {
+        width: 300px;
+        border: 1px solid #ddd;
+      }
+
+      select {
+        width: 304px;
+      }
+
+      td {
+        vertical-align: top;
+        padding: 5px;
+      }
+
+      td:first-child {
+        width: 200px;
+      }
+
+      fieldset {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 20px;
+        width: 540px;
+      }
+
+      legend {
+        color: #777;
+      }
+
+      textarea {
+          resize: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Madilo Fragen</h1>
+    <p>Gib hier deine Vorschläge für neue Madilo Fragen ein. Alle Vorschläge werden anonymisiert.</p>
+    <form action="http://localhost:3000/lessons/1/order" method="POST">
+      <fieldset>
+        <legend>Neuer Vorschlag</legend>
+
+        <table>
+          <tr>
+            <td><label for="category"><strong>Kategorie*</strong></label></td>
+            <td>
+                <select id="category" name="category" size="1" required>
+                    <option value="get_drunk">LET'S GET DRUNK!</option>
+                    <option value="never_have_i_ever">Ich hab' noch nie...</option>
+                    <option value="spiel">Spiel</option>
+                    <option value="auf_ex">AUF EX!</option>
+                    <option value="strafe">Strafe</option>
+                    <option value="schätzen">Schätzen</option>
+                    <option value="teams">Teams</option>
+                </select>
+            </td>
+            </tr>
+          <tr>
+            <td><label for="question"><strong>Frage*</strong></label></td>
+            <td>
+              <textarea name="question" id="question" cols="30" rows="3" required></textarea>
+            </td>
+          </tr>
+
+          <tr>
+              <td></td>
+              <td>
+                  <button>Spieler 1</button> 
+                  <button>Spieler 2</button>
+                  <button>Spieler 3</button>
+              </td>
+          </tr>
+
+          <tr>
+            <td><label for="annotations">Sonstige Anmerkungen</label></td>
+            <td>
+              <textarea name="annotations" id="annotations" cols="30" rows="3"></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="code"><strong>Code*</strong></label></td>
+            <td>
+              <input type="password" id="code" name="code" required>
+            </td>
+          </tr>
+
+          <tr>
+              <td></td>
+              <td>
+                <button type="submit" style="float: right;">Vorschlag Abschicken</button>
+              </td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+    <p>Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
+  </body>
+</html>
