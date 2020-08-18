@@ -2,6 +2,7 @@
 <html>
   <head>
       <link rel="stylesheet" href="buttons.css">
+      <script src="jquery-3.5.1.slim.js"></script>
     <style>
       * {
         font-family: Arial, Helvetica, sans-serif;
@@ -59,6 +60,61 @@
     </style>
   </head>
   <body>
+    <script>
+      $(document).ready(function() {
+        function setFocusToTextarea(){
+          document.getElementById("question").focus();
+        }
+
+        $("#s1").click(function() {
+          $("#question").val($("#question").val() + "%name1%");
+          setFocusToTextarea();
+        });
+
+        $("#s2").click(function() {
+          $("#question").val($("#question").val() + "%name2%");
+          setFocusToTextarea();
+        });
+        
+        $("#s3").click(function() {
+          $("#question").val($("#question").val() + "%name3%");
+          setFocusToTextarea();
+        });
+
+        $("#t1").click(function() {
+          $("#question").val($("#question").val() + "%team1%");
+          setFocusToTextarea();
+        });
+        
+        $("#t2").click(function() {
+          $("#question").val($("#question").val() + "%team2%");
+          setFocusToTextarea();
+        });
+
+        $("#t1s1").click(function() {
+          $("#question").val($("#question").val() + "%t1n1%");
+          setFocusToTextarea();
+        });
+
+        $("#t1s2").click(function() {
+          $("#question").val($("#question").val() + "%t1n2%");
+          setFocusToTextarea();
+        });
+
+        $("#t2s1").click(function() {
+          $("#question").val($("#question").val() + "%t2n1%");
+          setFocusToTextarea();
+        });
+
+        $("#t2s2").click(function() {
+          $("#question").val($("#question").val() + "%t2n2%");
+          setFocusToTextarea();
+        });
+        
+      });
+    </script>
+
+
     <h1>Madilo Fragen</h1>
     <p>Gib hier deine Vorschläge für neue Madilo Fragen ein. Alle Vorschläge werden anonymisiert.</p>
     <form action="http://localhost:3000/lessons/1/order" method="POST">
@@ -83,17 +139,35 @@
           <tr>
             <td><label for="question"><strong>Frage*</strong></label></td>
             <td>
-              <textarea name="question" id="question" cols="30" rows="3" required></textarea>
+              <textarea name="question" id="question" cols="30" rows="5" required></textarea>
             </td>
           </tr>
 
           <tr>
               <td></td>
               <td>
-                  <button>Spieler 1</button> 
-                  <button>Spieler 2</button>
-                  <button>Spieler 3</button>
+                  <button id="s1" type="button">Spieler 1</button> 
+                  <button id="s2" type="button">Spieler 2</button>
+                  <button id="s3" type="button">Spieler 3</button>
               </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+                <button id="t1" type="button">Team 1</button> 
+                <button id="t2" type="button">Team 2</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+                <button id="t1s1" type="button">Team 1 - Spieler 1</button>
+                <button id="t1s2" type="button">Team 1 - Spieler 2</button>  
+                <button id="t2s1" type="button">Team 2 - Spieler 1</button>
+                <button id="t2s2" type="button">Team 2 - Spieler 2</button>  
+            </td>
           </tr>
 
           <tr>
@@ -103,12 +177,12 @@
             </td>
           </tr>
 
-          <tr>
+          <!-- <tr>
             <td><label for="code"><strong>Code*</strong></label></td>
             <td>
               <input type="password" id="code" name="code" required>
             </td>
-          </tr>
+          </tr> -->
 
           <tr>
               <td></td>
